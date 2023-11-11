@@ -9,11 +9,11 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Payment_Group5
 build_property.RootNamespace = Payment_Group5
-build_property.ProjectDir = C:\Users\kenta\source\repos\ITsFlaviiFTW\Payment_Group5\Payment_Group5\Payment_Group5\
+build_property.ProjectDir = C:\Users\kenta\Source\Repos\ITsFlaviiFTW\Payment_Group5\Payment_Group5\Payment_Group5\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kenta\source\repos\ITsFlaviiFTW\Payment_Group5\Payment_Group5\Payment_Group5
+build_property.MSBuildProjectDirectory = C:\Users\kenta\Source\Repos\ITsFlaviiFTW\Payment_Group5\Payment_Group5\Payment_Group5
 build_property._RazorSourceGeneratorDebug = 
 
 [C:/Users/kenta/source/repos/ITsFlaviiFTW/Payment_Group5/Payment_Group5/Payment_Group5/Views/Home/Index.cshtml]
