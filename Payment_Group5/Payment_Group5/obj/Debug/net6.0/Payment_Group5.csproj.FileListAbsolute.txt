@@ -28,3 +28,33 @@ C:\Users\flavi\source\repos\Payment_Group5\Payment_Group5\Payment_Group5\obj\Deb
 C:\Users\flavi\source\repos\Payment_Group5\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.pdb
 C:\Users\flavi\source\repos\Payment_Group5\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.genruntimeconfig.cache
 C:\Users\flavi\source\repos\Payment_Group5\Payment_Group5\Payment_Group5\obj\Debug\net6.0\ref\Payment_Group5.dll
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\bin\Debug\net6.0\appsettings.Development.json
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\bin\Debug\net6.0\appsettings.json
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\bin\Debug\net6.0\Payment_Group5.staticwebassets.runtime.json
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\bin\Debug\net6.0\Payment_Group5.exe
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\bin\Debug\net6.0\Payment_Group5.deps.json
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\bin\Debug\net6.0\Payment_Group5.runtimeconfig.json
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\bin\Debug\net6.0\Payment_Group5.dll
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\bin\Debug\net6.0\Payment_Group5.pdb
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.GeneratedMSBuildEditorConfig.editorconfig
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.AssemblyInfoInputs.cache
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.AssemblyInfo.cs
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.csproj.CoreCompileInputs.cache
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.MvcApplicationPartsAssemblyInfo.cache
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.RazorAssemblyInfo.cache
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.RazorAssemblyInfo.cs
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\staticwebassets\msbuild.Payment_Group5.Microsoft.AspNetCore.StaticWebAssets.props
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\staticwebassets\msbuild.build.Payment_Group5.props
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Payment_Group5.props
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Payment_Group5.props
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\staticwebassets.pack.json
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\staticwebassets.build.json
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\staticwebassets.development.json
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\scopedcss\bundle\Payment_Group5.styles.css
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\scopedcss\projectbundle\Payment_Group5.bundle.scp.css
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.dll
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\refint\Payment_Group5.dll
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.pdb
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.genruntimeconfig.cache
+D:\School Files\Year 3 Fall Semester\Project V\currency coversion'\Payment_Group5\Payment_Group5\obj\Debug\net6.0\ref\Payment_Group5.dll

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {}
+    "D:\\School Files\\Year 3 Fall Semester\\Project V\\currency coversion'\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {}
   },
   "projects": {
-    "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {
+    "D:\\School Files\\Year 3 Fall Semester\\Project V\\currency coversion'\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
+        "projectUniqueName": "D:\\School Files\\Year 3 Fall Semester\\Project V\\currency coversion'\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
         "projectName": "Payment_Group5",
-        "projectPath": "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
-        "packagesPath": "C:\\Users\\flavi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\obj\\",
+        "projectPath": "D:\\School Files\\Year 3 Fall Semester\\Project V\\currency coversion'\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
+        "packagesPath": "C:\\Users\\craig\\.nuget\\packages\\",
+        "outputPath": "D:\\School Files\\Year 3 Fall Semester\\Project V\\currency coversion'\\Payment_Group5\\Payment_Group5\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\flavi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\craig\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,6 +43,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -63,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
