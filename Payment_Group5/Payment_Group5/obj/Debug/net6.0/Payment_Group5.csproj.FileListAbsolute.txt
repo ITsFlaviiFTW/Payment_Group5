@@ -28,3 +28,6 @@ C:\Users\flavi\source\repos\Payment_Group5\Payment_Group5\Payment_Group5\obj\Deb
 C:\Users\flavi\source\repos\Payment_Group5\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.pdb
 C:\Users\flavi\source\repos\Payment_Group5\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.genruntimeconfig.cache
 C:\Users\flavi\source\repos\Payment_Group5\Payment_Group5\Payment_Group5\obj\Debug\net6.0\ref\Payment_Group5.dll
+C:\Users\flavi\source\repos\Payment_Group5\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.csproj.AssemblyReference.cache
+C:\Users\flavi\source\repos\Payment_Group5\Payment_Group5\Payment_Group5\bin\Debug\net6.0\NuGet.Frameworks.dll
+C:\Users\flavi\source\repos\Payment_Group5\Payment_Group5\Payment_Group5\obj\Debug\net6.0\Payment_Group5.csproj.CopyComplete

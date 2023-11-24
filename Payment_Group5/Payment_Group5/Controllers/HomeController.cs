@@ -9,10 +9,11 @@ namespace Payment_Group5.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IReceiptGenerator _receiptGenerator;
+        public HomeController(ILogger<HomeController> logger, IReceiptGenerator receiptGenerator)
         {
             _logger = logger;
+            _receiptGenerator = receiptGenerator;
         }
 
         public IActionResult Index()
@@ -35,10 +36,10 @@ namespace Payment_Group5.Controllers
         {
             // Sample data for the demonstration
             User user = new User() { Name = "John Doe", Email = "john@example.com" };
-            Transaction transaction = new Transaction() { Amount = 250.75, TransactionDate = DateTime.Now };
+            Transaction transaction = new Transaction() { Amount = 250, TransactionDate = DateTime.Now };
 
-            ReceiptGenerator receiptGenerator = new ReceiptGenerator();
-            string receipt = receiptGenerator.GenerateReceipt(user, transaction);
+            // Use the injected _receiptGenerator to generate the receipt
+            string receipt = _receiptGenerator.GenerateReceipt(user, transaction);
 
             // Passing the receipt string to the view
             return View("Receipt", receipt);
