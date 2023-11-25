@@ -1,6 +1,62 @@
-﻿namespace Payment_Group5.Views.Payment
-{
-    public class BillingAddress
-    {
-    }
+﻿@{
+    ViewData["Title"] = "Billing Address";
 }
+
+<h2>Billing Address</h2>
+
+<form asp-controller="Home" asp-action="BillingAddress" method="post">
+    <!-- Hidden fields for cart data -->
+    <input type="hidden" name="Products" value="@ViewBag.Products" />
+    <input type="hidden" name="CustomerID" value="@ViewBag.CustomerID" />
+    <input type="hidden" name="Total" value="@ViewBag.Total" />
+
+    <!-- User's full name -->
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="Name" required />
+    </div>
+
+    <!-- User's email address -->
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" required />
+    </div>
+
+    <!-- Address line 1 -->
+    <div>
+        <label for="addressLine1">Address Line 1:</label>
+        <input type="text" id="addressLine1" name="AddressLine1" required />
+    </div>
+
+    <!-- Address line 2 (optional) -->
+    <div>
+        <label for="addressLine2">Address Line 2 (Optional):</label>
+        <input type="text" id="addressLine2" name="AddressLine2" />
+    </div>
+
+    <!-- City -->
+    <div>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="City" required />
+    </div>
+
+    <!-- State or Province -->
+    <div>
+        <label for="state">State/Province:</label>
+        <input type="text" id="state" name="State" required />
+    </div>
+
+    <!-- Postal or Zip Code -->
+    <div>
+        <label for="zipCode">Postal/Zip Code:</label>
+        <input type="text" id="zipCode" name="ZipCode" required />
+    </div>
+
+    <!-- Country -->
+    <div>
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="Country" required />
+    </div>
+
+    <button type="submit">Continue to Shipping</button>
+</form>

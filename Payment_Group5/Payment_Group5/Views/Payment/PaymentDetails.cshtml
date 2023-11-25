@@ -1,6 +1,30 @@
-﻿namespace Payment_Group5.Views.Payment
-{
-    public class PaymentDetails
-    {
-    }
+﻿@{
+    ViewData["Title"] = "Payment Details";
 }
+
+<h2>Payment Details</h2>
+
+<form asp-action="ProcessPayment" asp-controller="Payment" method="post">
+    <!-- Hidden fields for cart data -->
+    <input type="hidden" name="Products" value="@ViewBag.Products" />
+    <input type="hidden" name="CustomerID" value="@ViewBag.CustomerID" />
+    <input type="hidden" name="Total" value="@ViewBag.Total" />
+
+    <!-- Fields for payment details -->
+    <div>
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="CardNumber" required />
+    </div>
+
+    <div>
+        <label for="expiration">Expiration Date:</label>
+        <input type="text" id="expiration" name="Expiration" placeholder="MM/YY" required />
+    </div>
+
+    <div>
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="CVV" required />
+    </div>
+
+    <button type="submit">Pay</button>
+</form>

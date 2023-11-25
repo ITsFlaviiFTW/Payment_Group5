@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using PaymentModuleDemo;
 using PaymentModuleDemo.Models;
 using System;
@@ -10,27 +11,63 @@ namespace Payment_Group5.Controllers
     public class PaymentController : ControllerBase
     {
         private readonly IReceiptGenerator _receiptGenerator;
+        private readonly ILogger<PaymentController> _logger;
 
-        public PaymentController(IReceiptGenerator receiptGenerator)
+        public PaymentController(IReceiptGenerator receiptGenerator, ILogger<PaymentController> logger /*, DbContext context */)
         {
             _receiptGenerator = receiptGenerator;
+            _logger = logger;
         }
 
+        // This endpoint receives the cart data.
+        [HttpPost("cartinfo")]
+        public IActionResult ReceiveCartData([FromBody] PaymentInfo paymentInfo)
+        {
+            // Log the received data
+            _logger.LogInformation("Received cart data for CustomerID {CustomerID}", paymentInfo.CustomerID);
+
+            // Store the received data in session or a database.
+            // For session:
+            //HttpContext.Session.SetObject("PaymentInfo", paymentInfo);
+
+            // For database (when integrating with kenneth's database):
+            // var checkoutSession = new CheckoutSession
+            // {
+            //     CustomerId = paymentInfo.CustomerID,
+            //     Products = JsonConvert.SerializeObject(paymentInfo.Products),
+            //     TotalBeforeTax = paymentInfo.Total,
+            //     // Set other properties as needed.
+            // };
+            // _context.CheckoutSessions.Add(checkoutSession);
+            // _context.SaveChanges();
+
+            // Return a success response.
+            return Ok(new { message = "Cart data received successfully." });
+        }
         [HttpPost("ProcessPayment")]
         public IActionResult ProcessPayment([FromBody] PaymentInfo paymentInfo)
         {
-            // Here we would implement the logic to process the payment
+            // Assume we receive the name and email from the billing address form
+            User user = new User
+            {
+                UserId = paymentInfo.CustomerID,
+                Name = paymentInfo.BillingAddress.Name, // User-provided name
+                Email = paymentInfo.BillingAddress.Email, // User-provided email
+                BillingAddress = $"{paymentInfo.BillingAddress.AddressLine1}, {paymentInfo.BillingAddress.City}",
+            };
 
-            // Simulate fetching user from the customerID in the paymentInfo
-            User user = new User { UserId = paymentInfo.CustomerID, Name = "John Doe", Email = "john@example.com" };
+            // Calculate the final total, including any shipping costs and tax
+            decimal finalTotal = paymentInfo.Total + paymentInfo.ShippingCost;
+            decimal tax = finalTotal * 0.1m; // Example tax calculation (10%)
+            finalTotal += tax;
 
-            // Simulate transaction details
+            // Create a transaction instance
             Transaction transaction = new Transaction
             {
-                UserId = paymentInfo.CustomerID, // Make sure this matches the type of UserId
-                Amount = paymentInfo.Total, // This is the subtotal
-                Tax = paymentInfo.Total * 0.1m, // Example tax calculation
-                Total = paymentInfo.Total * 1.1m, // Total with tax
+                UserId = paymentInfo.CustomerID,
+                Amount = paymentInfo.Total, // This is the subtotal before shipping
+                Tax = tax, // Calculated tax amount
+                Total = finalTotal, // Total with shipping and tax
                 TransactionDate = DateTime.Now,
                 ProductIds = paymentInfo.Products // Assign the list of product IDs
             };

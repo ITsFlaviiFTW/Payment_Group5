@@ -3,11 +3,71 @@ using Payment_Group5.Models;
 using System.Diagnostics;
 using System;
 using PaymentModuleDemo;
+using Newtonsoft.Json;
 
 namespace Payment_Group5.Controllers
 {
     public class HomeController : Controller
     {
+        public IActionResult BillingAddress()
+        {
+            // Retrieve the cart data that was stored when the cart team's data was received
+            var products = TempData["Products"];
+            var customerID = TempData["CustomerID"];
+            var total = TempData["Total"];
+
+            // Reassign the TempData to persist for the next request
+            TempData.Keep();
+
+            // Pass the cart data to the view
+            ViewData["Products"] = products;
+            ViewData["CustomerID"] = customerID;
+            ViewData["Total"] = total;
+
+            return View(new BillingAddressModel());
+        }
+
+        [HttpPost]
+        public IActionResult BillingAddress(BillingAddressModel model)
+        {
+            // Process the billing address and store it for use in the next step
+            // For now, let's store it in TempData (or ideally in a session or database).
+            TempData["BillingAddress"] = JsonConvert.SerializeObject(model);
+
+            return RedirectToAction("Shipping");
+        }
+        public IActionResult Shipping()
+        {
+            // Retrieve the cart and billing data
+            var billingAddress = TempData["BillingAddress"];
+            var products = TempData["Products"];
+            var customerID = TempData["CustomerID"];
+            var total = TempData["Total"];
+
+            // Reassign the TempData to persist for the next request
+            TempData.Keep();
+
+            // Pass this data to the view
+            ViewData["BillingAddress"] = billingAddress;
+            ViewData["Products"] = products;
+            ViewData["CustomerID"] = customerID;
+            ViewData["Total"] = total;
+
+            return View(new ShippingModel());
+        }
+
+        [HttpPost]
+        public IActionResult Shipping(ShippingModel model)
+        {
+            // Store the selected shipping option and continue the checkout process
+            TempData["ShippingOption"] = model.ShippingOption;
+
+            // Use the TempData to carry forward the cart and billing data
+            TempData.Keep();
+
+            return RedirectToAction("PaymentPage");
+        }
+
         private readonly ILogger<HomeController> _logger;
         private readonly IReceiptGenerator _receiptGenerator;
         public HomeController(ILogger<HomeController> logger, IReceiptGenerator receiptGenerator)
@@ -44,5 +104,6 @@ namespace Payment_Group5.Controllers
             // Passing the receipt string to the view
             return View("Receipt", receipt);
         }
+
     }
 }
