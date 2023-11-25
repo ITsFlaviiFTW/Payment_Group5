@@ -6,9 +6,7 @@ using System;
 
 namespace Payment_Group5.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PaymentController : ControllerBase
+    public class PaymentController : Controller
     {
         private readonly IReceiptGenerator _receiptGenerator;
         private readonly ILogger<PaymentController> _logger;
@@ -44,8 +42,9 @@ namespace Payment_Group5.Controllers
             // Return a success response.
             return Ok(new { message = "Cart data received successfully." });
         }
+
         [HttpPost("ProcessPayment")]
-        public IActionResult ProcessPayment([FromBody] PaymentInfo paymentInfo)
+        public IActionResult ProcessPayment( PaymentInfo paymentInfo)
         {
             // Assume we receive the name and email from the billing address form
             User user = new User
@@ -80,5 +79,6 @@ namespace Payment_Group5.Controllers
 
             return Ok(new { Receipt = receipt });
         }
+
     }
 }

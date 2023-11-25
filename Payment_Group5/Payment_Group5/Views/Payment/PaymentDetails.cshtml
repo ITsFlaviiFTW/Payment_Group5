@@ -4,7 +4,7 @@
 
 <h2>Payment Details</h2>
 
-<form asp-action="ProcessPayment" asp-controller="Payment" method="post">
+<form asp-controller="Payment" asp-action="ProcessPayment" method="post">
     <!-- Hidden fields for cart data -->
     <input type="hidden" name="Products" value="@ViewBag.Products" />
     <input type="hidden" name="CustomerID" value="@ViewBag.CustomerID" />

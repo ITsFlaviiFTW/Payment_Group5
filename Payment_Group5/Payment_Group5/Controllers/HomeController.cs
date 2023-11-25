@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System;
 using PaymentModuleDemo;
 using Newtonsoft.Json;
+using PaymentModuleDemo.Models;
 
 namespace Payment_Group5.Controllers
 {
@@ -65,8 +66,9 @@ namespace Payment_Group5.Controllers
             // Use the TempData to carry forward the cart and billing data
             TempData.Keep();
 
-            return RedirectToAction("PaymentPage");
+            return RedirectToAction("ProcessPayment");
         }
+
 
         private readonly ILogger<HomeController> _logger;
         private readonly IReceiptGenerator _receiptGenerator;
