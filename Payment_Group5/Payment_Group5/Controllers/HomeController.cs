@@ -10,6 +10,14 @@ namespace Payment_Group5.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILogger<HomeController> _logger;
+        private readonly IReceiptGenerator _receiptGenerator;
+        public HomeController(ILogger<HomeController> logger, IReceiptGenerator receiptGenerator)
+        {
+            _logger = logger;
+            _receiptGenerator = receiptGenerator;
+        }
+
         public IActionResult BillingAddress()
         {
             // Retrieve the cart data that was stored when the cart team's data was received
@@ -66,17 +74,88 @@ namespace Payment_Group5.Controllers
             // Use the TempData to carry forward the cart and billing data
             TempData.Keep();
 
-            return RedirectToAction("ProcessPayment");
+            return RedirectToAction("PaymentDetails");
         }
 
-
-        private readonly ILogger<HomeController> _logger;
-        private readonly IReceiptGenerator _receiptGenerator;
-        public HomeController(ILogger<HomeController> logger, IReceiptGenerator receiptGenerator)
+        public IActionResult PaymentDetails()
         {
-            _logger = logger;
-            _receiptGenerator = receiptGenerator;
+            // Retrieve and keep all necessary data
+            var billingAddress = TempData["BillingAddress"];
+            var products = TempData["Products"];
+            var customerID = TempData["CustomerID"];
+            var total = TempData["Total"];
+            var shippingOption = TempData["ShippingOption"];
+
+            TempData.Keep();
+
+            // Pass this data to the view
+            ViewData["BillingAddress"] = billingAddress;
+            ViewData["Products"] = products;
+            ViewData["CustomerID"] = customerID;
+            ViewData["Total"] = total;
+            ViewData["ShippingOption"] = shippingOption;
+
+            return View(new PaymentInfo());
         }
+        [HttpPost]
+        public IActionResult ProcessPayment(PaymentInfo paymentInfo)
+        {
+            // Deserialize TempData to retrieve billing and shipping info
+            var billingAddressJson = TempData["BillingAddress"] as string;
+            var shippingOption = TempData["ShippingOption"] as string;
+
+            if (!string.IsNullOrEmpty(billingAddressJson))
+            {
+                paymentInfo.BillingAddress = JsonConvert.DeserializeObject<BillingAddressModel>(billingAddressJson);
+            }
+
+            if (!string.IsNullOrEmpty(shippingOption))
+            {
+                paymentInfo.Shipping = new ShippingModel { ShippingOption = shippingOption };
+            }
+
+            // Verify ModelState is valid
+            if (!ModelState.IsValid)
+            {
+                // Handle invalid ModelState
+                TempData.Keep();
+                return View("PaymentDetails", paymentInfo);
+            }
+
+            // Proceed to generate the receipt
+            User user = new User
+            {
+                UserId = paymentInfo.CustomerID,
+                Name = paymentInfo.BillingAddress.Name,
+                Email = paymentInfo.BillingAddress.Email,
+                BillingAddress = $"{paymentInfo.BillingAddress.AddressLine1}, {paymentInfo.BillingAddress.City}",
+            };
+
+            // Calculate the final total, including any shipping costs and tax
+            decimal finalTotal = paymentInfo.Total + paymentInfo.ShippingCost;
+                decimal tax = finalTotal * 0.1m; // Example tax calculation (10%)
+                finalTotal += tax;
+
+                // Create a transaction instance
+                Transaction transaction = new Transaction
+                {
+                    UserId = paymentInfo.CustomerID,
+                    Amount = paymentInfo.Total, // This is the subtotal before shipping
+                    Tax = tax, // Calculated tax amount
+                    Total = finalTotal, // Total with shipping and tax
+                    TransactionDate = DateTime.Now,
+                    ProductIds = paymentInfo.Products // Assign the list of product IDs
+                };
+
+                // Generate receipt
+                string receipt = _receiptGenerator.GenerateReceipt(user, transaction);
+
+                // TODO: Save transaction details to the database
+                // TODO: Send receipt to the user via email or other means
+
+                return View("Receipt", receipt);
+            }
+
 
         public IActionResult Index()
         {
@@ -92,19 +171,6 @@ namespace Payment_Group5.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public IActionResult GenerateReceipt()
-        {
-            // Sample data for the demonstration
-            User user = new User() { Name = "John Doe", Email = "john@example.com" };
-            Transaction transaction = new Transaction() { Amount = 250, TransactionDate = DateTime.Now };
-
-            // Use the injected _receiptGenerator to generate the receipt
-            string receipt = _receiptGenerator.GenerateReceipt(user, transaction);
-
-            // Passing the receipt string to the view
-            return View("Receipt", receipt);
         }
 
     }

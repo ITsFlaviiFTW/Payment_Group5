@@ -3,6 +3,10 @@ using Microsoft.Extensions.Logging;
 using PaymentModuleDemo;
 using PaymentModuleDemo.Models;
 using System;
+using Payment_Group5.Models;
+using System.Diagnostics;
+
+
 
 namespace Payment_Group5.Controllers
 {
@@ -43,8 +47,26 @@ namespace Payment_Group5.Controllers
             return Ok(new { message = "Cart data received successfully." });
         }
 
+      /*  public IActionResult PaymentDetails()
+        {
+            // Retrieve all necessary data
+            var billingAddress = TempData["BillingAddress"];
+            var products = TempData["Products"];
+            var customerID = TempData["CustomerID"];
+            var total = TempData["Total"];
+            var shippingOption = TempData["ShippingOption"];
+
+            // Pass this data to the view
+            ViewData["BillingAddress"] = billingAddress;
+            ViewData["Products"] = products;
+            ViewData["CustomerID"] = customerID;
+            ViewData["Total"] = total;
+            ViewData["ShippingOption"] = shippingOption;
+
+            return View();
+        }
         [HttpPost("ProcessPayment")]
-        public IActionResult ProcessPayment( PaymentInfo paymentInfo)
+        public IActionResult ProcessPayment(PaymentInfo paymentInfo)
         {
             // Assume we receive the name and email from the billing address form
             User user = new User
@@ -77,8 +99,8 @@ namespace Payment_Group5.Controllers
             // TODO: Save transaction details to the database
             // TODO: Send receipt to the user via email or other means
 
-            return Ok(new { Receipt = receipt });
-        }
+            return View("Receipt", receipt);
+        }*/
 
     }
 }
