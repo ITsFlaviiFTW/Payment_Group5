@@ -36,23 +36,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\flavi\\.nuget\\packages\\": {},
+    "C:\\Users\\craig\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
+      "projectUniqueName": "D:\\School Files\\Year 3 Fall Semester\\Project V\\Project Test Env\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
       "projectName": "Payment_Group5",
-      "projectPath": "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
-      "packagesPath": "C:\\Users\\flavi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\obj\\",
+      "projectPath": "D:\\School Files\\Year 3 Fall Semester\\Project V\\Project Test Env\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
+      "packagesPath": "C:\\Users\\craig\\.nuget\\packages\\",
+      "outputPath": "D:\\School Files\\Year 3 Fall Semester\\Project V\\Project Test Env\\Payment_Group5\\Payment_Group5\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\flavi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\craig\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -103,16 +103,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

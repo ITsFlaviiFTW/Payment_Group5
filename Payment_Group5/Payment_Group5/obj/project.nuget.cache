@@ -1,17 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "65mHlDbHNyyLtsqMZtkvoXkTq7Hhq/gOHLPuDOdYYe4owpHktVx3vedA1Ymy7SD1woXmruzE+x++ovZRD3c3Hw==",
+  "dgSpecHash": "aRkQha3dpbBM71EStVO+ZxYU67ZAT5i7YWEkbuv+BL3xy77uIRkIN97Z2PqTUnmmgTKyakurMcPgDiqazp/Rxg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
+  "projectFilePath": "D:\\School Files\\Year 3 Fall Semester\\Project V\\Project Test Env\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\flavi\\.nuget\\packages\\nuget.frameworks\\6.7.0\\nuget.frameworks.6.7.0.nupkg.sha512"
+    "C:\\Users\\craig\\.nuget\\packages\\nuget.frameworks\\6.7.0\\nuget.frameworks.6.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

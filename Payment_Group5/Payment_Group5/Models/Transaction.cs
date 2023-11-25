@@ -17,5 +17,10 @@ namespace PaymentModuleDemo
         {
             ProductIds = new List<int>();
         }
+
+        public static implicit operator Transaction(Transaction v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

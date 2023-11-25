@@ -7,5 +7,10 @@ namespace PaymentModuleDemo.Models
         public List<int> Products { get; set; }
         public int CustomerID { get; set; }
         public decimal Total { get; set; }
+
+        public static implicit operator PaymentInfo(PaymentInfo v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
