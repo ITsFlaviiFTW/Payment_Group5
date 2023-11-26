@@ -1,4 +1,6 @@
-﻿using PaymentModuleDemo.Models;
+﻿using Microsoft.AspNetCore.Http;
+using Payment_Group5.Models;
+using PaymentModuleDemo.Models;
 using System;
 using System.Text;
 
@@ -6,12 +8,12 @@ namespace PaymentModuleDemo
 {
     public interface IReceiptGenerator
     {
-        string GenerateReceipt(User user, Transaction transaction);
+        string GenerateReceipt(User user, Transaction transaction, string shippingOption);
     }
 
     public class ReceiptGenerator : IReceiptGenerator
     {
-        public string GenerateReceipt(User user, Transaction transaction)
+        public string GenerateReceipt(User user, Transaction transaction, string shippingOption)
         {
             StringBuilder receiptBuilder = new StringBuilder();
 
@@ -21,6 +23,7 @@ namespace PaymentModuleDemo
                 receiptBuilder.AppendLine($"Name: {user.Name}");
                 receiptBuilder.AppendLine($"Email: {user.Email}");
 
+                receiptBuilder.AppendLine($"Shipping Option: {shippingOption}");
                 receiptBuilder.AppendLine($"Subtotal: {transaction.Amount:C}");
                 receiptBuilder.AppendLine($"Tax: {transaction.Tax:C}");
                 receiptBuilder.AppendLine($"Total: {transaction.Total:C}");

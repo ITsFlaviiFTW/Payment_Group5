@@ -74,10 +74,10 @@ namespace Payment_Group5.Controllers
             // Use the TempData to carry forward the cart and billing data
             TempData.Keep();
 
-            return RedirectToAction("PaymentDetails");
+            return RedirectToAction("ProcessPayment");
         }
 
-        public IActionResult PaymentDetails()
+        public IActionResult ProcessPayment()
         {
             // Retrieve and keep all necessary data
             var billingAddress = TempData["BillingAddress"];
@@ -115,11 +115,11 @@ namespace Payment_Group5.Controllers
             }
 
             // Verify ModelState is valid
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 // Handle invalid ModelState
                 TempData.Keep();
-                return View("PaymentDetails", paymentInfo);
+                return View("ProcessPayment", paymentInfo);
             }
 
             // Proceed to generate the receipt
@@ -148,7 +148,7 @@ namespace Payment_Group5.Controllers
                 };
 
                 // Generate receipt
-                string receipt = _receiptGenerator.GenerateReceipt(user, transaction);
+                string receipt = _receiptGenerator.GenerateReceipt(user, transaction, shippingOption);
 
                 // TODO: Save transaction details to the database
                 // TODO: Send receipt to the user via email or other means

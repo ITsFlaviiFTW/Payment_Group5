@@ -7,6 +7,9 @@ namespace PaymentModuleDemo.Models
         public List<int> Products { get; set; }
         public int CustomerID { get; set; }
         public decimal Total { get; set; } // This should be subtotal before tax and shipping
+        public string CardNumber { get; set; }
+        public string Expiration { get; set; }
+        public string CVV { get; set; }
         public BillingAddressModel BillingAddress { get; set; }
         public ShippingModel Shipping { get; set; }
         public string PaymentMethod { get; set; } // e.g., "CreditCard"
