@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {}
+    "C:\\Users\\flaviipc\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {}
   },
   "projects": {
-    "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {
+    "C:\\Users\\flaviipc\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
+        "projectUniqueName": "C:\\Users\\flaviipc\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
         "projectName": "Payment_Group5",
-        "projectPath": "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
-        "packagesPath": "C:\\Users\\flavi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\flavi\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\obj\\",
+        "projectPath": "C:\\Users\\flaviipc\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
+        "packagesPath": "C:\\Users\\flaviipc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\flaviipc\\source\\repos\\Payment_Group5\\Payment_Group5\\Payment_Group5\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\flavi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\flaviipc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,6 +65,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -72,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
