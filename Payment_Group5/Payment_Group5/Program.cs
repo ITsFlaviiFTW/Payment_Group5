@@ -9,8 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IReceiptGenerator, ReceiptGenerator>();
 
 // Establish the database connection
-string connectionString = "Server=tcp:group5-payment-server.database.windows.net,1433;Initial Catalog=Group5-Payment-SQLDatabase;Persist Security Info=False;" +
-    "User ID=ktargosz;Password=paymentGr0up;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+string connectionString = "Server=tcp:group5-payment-server.database.windows.net,1433;Initial Catalog=Group5-Payment-SQLDatabase;Persist Security Info=False;User ID=ktargosz;Password=paymentGr0up;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 using (SqlConnection connection = new SqlConnection(connectionString))
 {
     connection.Open();
