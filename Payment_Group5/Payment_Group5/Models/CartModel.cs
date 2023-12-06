@@ -2,7 +2,7 @@
 {
     public class CartModel
     {
-        public int[] products { get; set; }
+        public List<int> products { get; set; }
         public int customerID { get; set; }
         public decimal total { get; set; }
     }
