@@ -23,20 +23,21 @@ namespace Payment_Group5.Controllers
         }
 
         // This endpoint receives the cart data.
-        [HttpPost("cartinfo")]
-        public IActionResult ReceiveCartData([FromBody] PaymentInfo paymentInfo)
+        [HttpPost("/api/cartinfo")]
+        public IActionResult ReceiveCartData([FromBody] CartModel cart)
         {
+
             // Log the received data
-            _logger.LogInformation("Received cart data for CustomerID {CustomerID}", paymentInfo.CustomerID);
+            //_logger.LogInformation("Received cart data for CustomerID {CustomerID}", paymentInfo.CustomerID);
 
             // Store the received data in TempData for now 
-            TempData["Products"] = JsonConvert.SerializeObject(paymentInfo.Products);
-            TempData["CustomerID"] = paymentInfo.CustomerID;
-            TempData["Total"] = paymentInfo.Total;
+            //TempData["Products"] = JsonConvert.SerializeObject(paymentInfo.Products);
+            //TempData["CustomerID"] = paymentInfo.CustomerID;
+            //TempData["Total"] = paymentInfo.Total;
 
 
-            string checkoutUrl = Url.Action("BillingAddress", "Home", null, Request.Scheme);
-
+            //string checkoutUrl = Url.Action("BillingAddress", "Home", null, Request.Scheme);
+            
             // Return a success response.
             return Ok(new { message = "Cart data received successfully." });
         }
