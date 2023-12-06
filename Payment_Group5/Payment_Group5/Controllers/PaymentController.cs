@@ -26,6 +26,10 @@ namespace Payment_Group5.Controllers
         [HttpPost("/api/cartinfo")]
         public IActionResult ReceiveCartData([FromBody] CartModel cart)
         {
+            PaymentInfo paymentInfo = new PaymentInfo();
+            paymentInfo.Total = cart.total;
+            paymentInfo.Products = cart.products;
+            paymentInfo.CustomerID = cart.customerID;
 
             // Log the received data
             //_logger.LogInformation("Received cart data for CustomerID {CustomerID}", paymentInfo.CustomerID);
