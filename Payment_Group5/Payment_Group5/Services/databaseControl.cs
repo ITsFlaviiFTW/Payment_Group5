@@ -33,5 +33,36 @@ namespace Payment_Group5.Services
                 }
             }
         }
+
+        public static void InsertOrder(SqlConnection connection, int customerID, int numberOfItems, decimal totalBeforeTax, decimal totalAfterTax, string paymentMethod, DateTime purchaseDateTime, decimal averagePrice)
+        {
+            // Example query to insert data into the Orders table
+            string insertQuery = "INSERT INTO group5DB (CustomerID, NumberOfItems, TotalBeforeTax, TotalAfterTax, PaymentMethod, PurchaseDateTime, AveragePrice) " +
+                                "VALUES (@CustomerID, @NumberOfItems, @TotalBeforeTax, @TotalAfterTax, @PaymentMethod, @PurchaseDateTime, @AveragePrice)";
+
+            using (SqlCommand command = new SqlCommand(insertQuery, connection))
+            {
+                // Add parameters to the query to prevent SQL injection
+                command.Parameters.AddWithValue("@CustomerID", customerID);
+                command.Parameters.AddWithValue("@NumberOfItems", numberOfItems);
+                command.Parameters.AddWithValue("@TotalBeforeTax", totalBeforeTax);
+                command.Parameters.AddWithValue("@TotalAfterTax", totalAfterTax);
+                command.Parameters.AddWithValue("@PaymentMethod", paymentMethod);
+                command.Parameters.AddWithValue("@PurchaseDateTime", purchaseDateTime);
+                command.Parameters.AddWithValue("@AveragePrice", averagePrice);
+
+                // Execute the INSERT INTO query
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("Order inserted successfully!");
+                }
+                else
+                {
+                    Console.WriteLine("Failed to insert order.");
+                }
+            }
+        }
     }
 }
