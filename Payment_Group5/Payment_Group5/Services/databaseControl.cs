@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Payment_Group5.Services
 {
@@ -26,9 +27,9 @@ namespace Payment_Group5.Services
                         DateTime purchaseDateTime = reader.GetDateTime(6);
                         decimal averagePrice = reader.GetDecimal(7);
 
-                        // Perform operations with the fetched data (e.g., display, process, etc.)
-                        /* Console.WriteLine($"OrderID: {orderID}, CustomerID: {customerID}, Items: {numberOfItems}, TotalBeforeTax: {totalBeforeTax}," +
-                            $" TotalAfterTax: {totalAfterTax}, PaymentMethod: {paymentMethod}, PurchaseDateTime: {purchaseDateTime}, AveragePrice: {averagePrice}"); */
+                        // Perform operations with the fetched data
+                        // Console.WriteLine($"OrderID: {orderID}, CustomerID: {customerID}, Items: {numberOfItems}, TotalBeforeTax: {totalBeforeTax}," +
+                        //    $" TotalAfterTax: {totalAfterTax}, PaymentMethod: {paymentMethod}, PurchaseDateTime: {purchaseDateTime}, AveragePrice: {averagePrice}");
                     }
                 }
             }
@@ -51,7 +52,6 @@ namespace Payment_Group5.Services
                 command.Parameters.AddWithValue("@PaymentMethod", paymentMethod);
                 command.Parameters.AddWithValue("@PurchaseDateTime", purchaseDateTime);
                 command.Parameters.AddWithValue("@AveragePrice", averagePrice);
-                
 
                 // Execute the INSERT INTO query
                 int rowsAffected = command.ExecuteNonQuery();
@@ -65,6 +65,61 @@ namespace Payment_Group5.Services
                     Console.WriteLine("Failed to insert order.");
                 }
             }
+        }
+
+        public static void ExportOrdersToTxt(SqlConnection connection, string outputFile)
+        {
+            // Example query to fetch data from the Orders table
+            string query = "SELECT OrderID, CustomerID, NumberOfItems, TotalBeforeTax, TotalAfterTax, PaymentMethod, PurchaseDateTime, AveragePrice FROM group5DB";
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    using (StreamWriter writer = new StreamWriter(outputFile))
+                    {
+                        // Write header row
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            writer.Write($"{reader.GetName(i)}\t");
+                        }
+                        writer.WriteLine();
+
+                        // Write data rows
+                        while (reader.Read())
+                        {
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                writer.Write($"{reader[i]}\t");
+                            }
+                            writer.WriteLine();
+                        }
+                    }
+                }
+            }
+
+            Console.WriteLine($"Exported data to {outputFile} successfully.");
+        }
+
+        public static int GetHighestOrderID(SqlConnection connection)
+        {
+            int highestOrderID = 0;
+
+            // Example query to get the highest OrderID
+            string query = "SELECT * FROM group5DB ORDER BY orderID DESC LIMIT 1;";
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                // Execute the SELECT query and get the result
+                object result = command.ExecuteScalar();
+
+                if (result != DBNull.Value)
+                {
+                    highestOrderID = Convert.ToInt32(result);
+                }
+            }
+
+            return highestOrderID;
         }
     }
 }
