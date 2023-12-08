@@ -34,15 +34,16 @@ namespace Payment_Group5.Services
             }
         }
 
-        public static void InsertOrder(SqlConnection connection, int customerID, int numberOfItems, decimal totalBeforeTax, decimal totalAfterTax, string paymentMethod, DateTime purchaseDateTime, decimal averagePrice)
+        public static void InsertOrder(SqlConnection connection, int customerID, int numberOfItems, decimal totalBeforeTax, decimal totalAfterTax, string paymentMethod, DateTime purchaseDateTime, double averagePrice)
         {
             // Example query to insert data into the Orders table
-            string insertQuery = "INSERT INTO group5DB (CustomerID, NumberOfItems, TotalBeforeTax, TotalAfterTax, PaymentMethod, PurchaseDateTime, AveragePrice) " +
-                                "VALUES (@CustomerID, @NumberOfItems, @TotalBeforeTax, @TotalAfterTax, @PaymentMethod, @PurchaseDateTime, @AveragePrice)";
+            string insertQuery = "INSERT INTO group5DB (OrderID, CustomerID, NumberOfItems, TotalBeforeTax, TotalAfterTax, PaymentMethod, PurchaseDateTime, AveragePrice) " +
+                                "VALUES (@OrderID, @CustomerID, @NumberOfItems, @TotalBeforeTax, @TotalAfterTax, @PaymentMethod, @PurchaseDateTime, @AveragePrice)";
 
             using (SqlCommand command = new SqlCommand(insertQuery, connection))
             {
                 // Add parameters to the query to prevent SQL injection
+                command.Parameters.AddWithValue("@OrderID", 4);
                 command.Parameters.AddWithValue("@CustomerID", customerID);
                 command.Parameters.AddWithValue("@NumberOfItems", numberOfItems);
                 command.Parameters.AddWithValue("@TotalBeforeTax", totalBeforeTax);
@@ -50,6 +51,7 @@ namespace Payment_Group5.Services
                 command.Parameters.AddWithValue("@PaymentMethod", paymentMethod);
                 command.Parameters.AddWithValue("@PurchaseDateTime", purchaseDateTime);
                 command.Parameters.AddWithValue("@AveragePrice", averagePrice);
+                
 
                 // Execute the INSERT INTO query
                 int rowsAffected = command.ExecuteNonQuery();

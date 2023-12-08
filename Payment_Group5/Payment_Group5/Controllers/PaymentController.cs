@@ -6,8 +6,8 @@ using System;
 using Payment_Group5.Models;
 using System.Diagnostics;
 using Newtonsoft.Json;
-
-
+using Payment_Group5.Services;
+using System.Data.SqlClient;
 
 namespace Payment_Group5.Controllers
 {
@@ -31,6 +31,21 @@ namespace Payment_Group5.Controllers
             paymentInfo.Products = cart.products;
             paymentInfo.CustomerID = cart.customerID;
 
+            decimal avg;
+
+            string connectionString = "Server=tcp:group5-payment-server.database.windows.net,1433;Initial Catalog=Group5-Payment-SQLDatabase;Persist Security Info=False;User ID=ktargosz;Password=paymentGr0up;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Pass the connection to the DatabaseControl class
+                DatabaseControl.DatabaseConnection(connection);
+
+                DatabaseControl.InsertOrder(connection, paymentInfo.CustomerID, paymentInfo.Products.Count(), paymentInfo.Total, paymentInfo.Total, "Visa", DateTime.Now, 1.0);
+
+            }
+
+
             // Log the received data
             //_logger.LogInformation("Received cart data for CustomerID {CustomerID}", paymentInfo.CustomerID);
 
@@ -40,10 +55,10 @@ namespace Payment_Group5.Controllers
             //TempData["Total"] = paymentInfo.Total;
 
 
-            //string checkoutUrl = Url.Action("BillingAddress", "Home", null, Request.Scheme);
-            
+            string checkoutUrl = Url.Action("BillingAddress", "Home", null, Request.Scheme);
+
             // Return a success response.
-            return Ok(new { message = "Cart data received successfully." });
+            return Ok(checkoutUrl);
         }
 
     }
