@@ -35,7 +35,7 @@ namespace Payment_Group5.Services
             }
         }
 
-        public static void InsertOrder(SqlConnection connection, int customerID, int numberOfItems, decimal totalBeforeTax, decimal totalAfterTax, string paymentMethod, DateTime purchaseDateTime, double averagePrice)
+        public static void InsertOrder(SqlConnection connection, int orderID, int customerID, int numberOfItems, decimal totalBeforeTax, decimal totalAfterTax, string paymentMethod, DateTime purchaseDateTime, decimal averagePrice)
         {
             // Example query to insert data into the Orders table
             string insertQuery = "INSERT INTO group5DB (OrderID, CustomerID, NumberOfItems, TotalBeforeTax, TotalAfterTax, PaymentMethod, PurchaseDateTime, AveragePrice) " +
@@ -44,7 +44,7 @@ namespace Payment_Group5.Services
             using (SqlCommand command = new SqlCommand(insertQuery, connection))
             {
                 // Add parameters to the query to prevent SQL injection
-                command.Parameters.AddWithValue("@OrderID", 4);
+                command.Parameters.AddWithValue("@OrderID", orderID);
                 command.Parameters.AddWithValue("@CustomerID", customerID);
                 command.Parameters.AddWithValue("@NumberOfItems", numberOfItems);
                 command.Parameters.AddWithValue("@TotalBeforeTax", totalBeforeTax);
@@ -106,7 +106,7 @@ namespace Payment_Group5.Services
             int highestOrderID = 0;
 
             // Example query to get the highest OrderID
-            string query = "SELECT * FROM group5DB ORDER BY orderID DESC LIMIT 1;";
+            string query = "SELECT MAX(orderID) FROM group5DB;";
 
             using (SqlCommand command = new SqlCommand(query, connection))
             {

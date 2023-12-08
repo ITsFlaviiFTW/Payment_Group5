@@ -108,7 +108,7 @@
           }
         }
       },
-      "NuGet.Frameworks/6.7.0": {
+      "NuGet.Frameworks/6.8.0": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NuGet.Frameworks.dll": {}
@@ -423,10 +423,10 @@
         "packageIcon.png"
       ]
     },
-    "NuGet.Frameworks/6.7.0": {
-      "sha512": "mTKaTSINpCjMHTNdaPMD/0nfHvWGetG67KzWtDJklnAp9nNwqA+t65G0v8XA/Ve35ipmPRdklxFIl3O55iTgnQ==",
+    "NuGet.Frameworks/6.8.0": {
+      "sha512": "cN9NyahKgYYScioH4CKn+TYj1eSODxd0RECFnQt6ZmzT6z7PfXlbYpVzbiPsxNgY23iNDMOVkSmOqNZyYxNlQA==",
       "type": "package",
-      "path": "nuget.frameworks/6.7.0",
+      "path": "nuget.frameworks/6.8.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -434,7 +434,7 @@
         "icon.png",
         "lib/net472/NuGet.Frameworks.dll",
         "lib/netstandard2.0/NuGet.Frameworks.dll",
-        "nuget.frameworks.6.7.0.nupkg.sha512",
+        "nuget.frameworks.6.8.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
       ]
     },
@@ -692,28 +692,28 @@
     "net6.0": [
       "MSTest.TestFramework >= 3.1.1",
       "Newtonsoft.Json >= 13.0.3",
-      "NuGet.Frameworks >= 6.7.0",
+      "NuGet.Frameworks >= 6.8.0",
       "System.Data.SqlClient >= 4.8.5"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kenta\\.nuget\\packages\\": {},
-    "G:\\Visual Studio Shared\\NuGetPackages": {}
+    "C:\\Users\\timme\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kenta\\Source\\Repos\\ITsFlaviiFTW\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
+      "projectUniqueName": "C:\\Users\\timme\\Source\\Repos\\Paym\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
       "projectName": "Payment_Group5",
-      "projectPath": "C:\\Users\\kenta\\Source\\Repos\\ITsFlaviiFTW\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
-      "packagesPath": "C:\\Users\\kenta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kenta\\Source\\Repos\\ITsFlaviiFTW\\Payment_Group5\\Payment_Group5\\Payment_Group5\\obj\\",
+      "projectPath": "C:\\Users\\timme\\Source\\Repos\\Paym\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
+      "packagesPath": "C:\\Users\\timme\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\timme\\Source\\Repos\\Paym\\Payment_Group5\\Payment_Group5\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "G:\\Visual Studio Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\kenta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\timme\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -750,7 +750,7 @@
           },
           "NuGet.Frameworks": {
             "target": "Package",
-            "version": "[6.7.0, )"
+            "version": "[6.8.0, )"
           },
           "System.Data.SqlClient": {
             "target": "Package",
@@ -776,7 +776,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

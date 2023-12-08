@@ -31,7 +31,9 @@ namespace Payment_Group5.Controllers
             paymentInfo.Products = cart.products;
             paymentInfo.CustomerID = cart.customerID;
 
-            decimal avg;
+
+            double avg;
+            double sum = 0;
 
             string connectionString = "Server=tcp:group5-payment-server.database.windows.net,1433;Initial Catalog=Group5-Payment-SQLDatabase;Persist Security Info=False;User ID=ktargosz;Password=paymentGr0up;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -41,7 +43,7 @@ namespace Payment_Group5.Controllers
                 // Pass the connection to the DatabaseControl class
                 DatabaseControl.DatabaseConnection(connection);
 
-                DatabaseControl.InsertOrder(connection, paymentInfo.CustomerID, paymentInfo.Products.Count(), paymentInfo.Total, paymentInfo.Total, "Visa", DateTime.Now, 1.0);
+                DatabaseControl.InsertOrder(connection, DatabaseControl.GetHighestOrderID(connection) + 1, paymentInfo.CustomerID, paymentInfo.Products.Count(), paymentInfo.Total, paymentInfo.Total, "Visa", DateTime.Now, paymentInfo.Total);
 
             }
 
@@ -58,7 +60,7 @@ namespace Payment_Group5.Controllers
             string checkoutUrl = Url.Action("BillingAddress", "Home", null, Request.Scheme);
 
             // Return a success response.
-            return Ok(checkoutUrl);
+            return Ok(checkoutUrl );
         }
 
     }
