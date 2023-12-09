@@ -16,6 +16,7 @@ using (SqlConnection connection = new SqlConnection(connectionString))
 
     // Pass the connection to the DatabaseControl class
     DatabaseControl.DatabaseConnection(connection);
+    DatabaseControl.ExportOrdersToTxt(connection, "DataBase.txt");
 }
 
 var app = builder.Build();
@@ -38,6 +39,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 
 app.Run();
