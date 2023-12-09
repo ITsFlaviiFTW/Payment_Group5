@@ -5,6 +5,9 @@ using System;
 using PaymentModuleDemo;
 using Newtonsoft.Json;
 using PaymentModuleDemo.Models;
+using Payment_Group5.Services;
+using System.Data.SqlClient;
+using System.Runtime.Intrinsics.X86;
 
 namespace Payment_Group5.Controllers
 {
@@ -147,14 +150,20 @@ namespace Payment_Group5.Controllers
                     ProductIds = paymentInfo.Products // Assign the list of product IDs
                 };
 
-                // Generate receipt
-                string receipt = _receiptGenerator.GenerateReceipt(user, transaction, shippingOption);
+            // Generate receipt
+            string connectionString = "Server=tcp:group5-payment-server.database.windows.net,1433;Initial Catalog=Group5-Payment-SQLDatabase;Persist Security Info=False;User ID=ktargosz;Password=paymentGr0up;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
 
-                // TODO: Save transaction details to the database
-                // TODO: Send receipt to the user via email or other means
-
+                // Pass the connection to the DatabaseControl class
+                DatabaseControl.DatabaseConnection(connection);
+                dataBaseData data = DatabaseControl.getLatestRecord(connection);
+                string receipt = _receiptGenerator.GenerateReceipt(data);
                 return View("Receipt", receipt);
             }
+
+        }
 
 
         public IActionResult Index()

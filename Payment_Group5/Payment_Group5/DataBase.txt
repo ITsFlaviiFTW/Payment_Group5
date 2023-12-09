@@ -1,1 +1,3 @@
 OrderID	CustomerID	NumberOfItems	TotalBeforeTax	TotalAfterTax	PaymentMethod	PurchaseDateTime	AveragePrice	
+1	C1234531	2	34.23	38.68	Visa	2023-12-09 12:18:07 AM	17.12	
+2	C1234531	3	34.23	38.68	Visa	2023-12-09 12:19:11 AM	11.41	

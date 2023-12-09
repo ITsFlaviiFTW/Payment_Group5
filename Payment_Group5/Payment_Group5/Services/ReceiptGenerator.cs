@@ -8,26 +8,26 @@ namespace PaymentModuleDemo
 {
     public interface IReceiptGenerator
     {
-        string GenerateReceipt(User user, Transaction transaction, string shippingOption);
+        string GenerateReceipt(dataBaseData data);
     }
 
     public class ReceiptGenerator : IReceiptGenerator
     {
-        public string GenerateReceipt(User user, Transaction transaction, string shippingOption)
+        public string GenerateReceipt(dataBaseData data)
         {
-            StringBuilder receiptBuilder = new StringBuilder();
+
+
+                StringBuilder receiptBuilder = new StringBuilder();
 
                 receiptBuilder.AppendLine("Payment Receipt");
                 receiptBuilder.AppendLine("---------------");
-                receiptBuilder.AppendLine($"Transaction ID: {transaction.TransactionId}");
-                receiptBuilder.AppendLine($"Name: {user.Name}");
-                receiptBuilder.AppendLine($"Email: {user.Email}");
+                receiptBuilder.AppendLine($"Transaction ID: {data.orderId + data.date.Minute}");
+                receiptBuilder.AppendLine($"CustomerId: {data.customerId}");
 
-                receiptBuilder.AppendLine($"Shipping Option: {shippingOption}");
-                receiptBuilder.AppendLine($"Subtotal: {transaction.Amount:C}");
-                receiptBuilder.AppendLine($"Tax: {transaction.Tax:C}");
-                receiptBuilder.AppendLine($"Total: {transaction.Total:C}");
-                receiptBuilder.AppendLine($"Date: {transaction.TransactionDate.ToString("g")}");
+                receiptBuilder.AppendLine($"Subtotal: {data.subtotal:C}");
+                receiptBuilder.AppendLine($"Tax: {data.total * 0.13m:C}");
+                receiptBuilder.AppendLine($"Total: {data.total:C}");
+                receiptBuilder.AppendLine($"Date: {data.date}");
 
                 return receiptBuilder.ToString();
             }

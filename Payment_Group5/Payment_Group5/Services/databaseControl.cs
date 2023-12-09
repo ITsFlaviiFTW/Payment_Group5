@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Payment_Group5.Models;
+using System;
 using System.Data.SqlClient;
 using System.IO;
+using System.Net.NetworkInformation;
 
 namespace Payment_Group5.Services
 {
@@ -120,6 +122,34 @@ namespace Payment_Group5.Services
             }
 
             return highestOrderID;
+        }
+        public static dataBaseData getLatestRecord(SqlConnection connection)
+        {
+            dataBaseData dataBase = new dataBaseData();
+
+            string query = ("SELECT * FROM group5DB WHERE OrderID = (SELECT MAX(OrderID) FROM group5DB);");
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        // Access data using column names or indices
+                        dataBase.orderId = reader.GetInt32(0);
+                        dataBase.customerId = reader.GetString(1);
+                        dataBase.numOfItems = reader.GetInt32(2);
+                        dataBase.subtotal = reader.GetDecimal(3);
+                        dataBase.total = reader.GetDecimal(4);
+                        dataBase.paymentMethod = reader.GetString(5);
+                        dataBase.date = reader.GetDateTime(6);
+                        dataBase.avg = reader.GetDecimal(7);
+                                                
+                    }
+                }
+            }
+
+            return dataBase;
         }
     }
 }
