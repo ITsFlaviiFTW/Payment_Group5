@@ -19,7 +19,7 @@ namespace Payment_Group5.Services
                     {
                         // Access data using column names or indices
                         int orderID = reader.GetInt32(0);
-                        int customerID = reader.GetInt32(1);
+                        string customerID = reader.GetString(1);
                         int numberOfItems = reader.GetInt32(2);
                         decimal totalBeforeTax = reader.GetDecimal(3);
                         decimal totalAfterTax = reader.GetDecimal(4);
@@ -35,7 +35,7 @@ namespace Payment_Group5.Services
             }
         }
 
-        public static void InsertOrder(SqlConnection connection, int orderID, int customerID, int numberOfItems, decimal totalBeforeTax, decimal totalAfterTax, string paymentMethod, DateTime purchaseDateTime, decimal averagePrice)
+        public static void InsertOrder(SqlConnection connection, int orderID, string customerID, int numberOfItems, decimal totalBeforeTax, decimal totalAfterTax, string paymentMethod, DateTime purchaseDateTime, decimal averagePrice)
         {
             // Example query to insert data into the Orders table
             string insertQuery = "INSERT INTO group5DB (OrderID, CustomerID, NumberOfItems, TotalBeforeTax, TotalAfterTax, PaymentMethod, PurchaseDateTime, AveragePrice) " +
