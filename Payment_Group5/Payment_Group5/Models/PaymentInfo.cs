@@ -4,8 +4,8 @@ namespace PaymentModuleDemo.Models
 {
     public class PaymentInfo
     {
-        public List<int> Products { get; set; }
-        public int CustomerID { get; set; }
+        public List<string> Products { get; set; }
+        public string CustomerID { get; set; }
         public decimal Total { get; set; } // This should be subtotal before tax and shipping
         public string CardNumber { get; set; }
         public string Expiration { get; set; }

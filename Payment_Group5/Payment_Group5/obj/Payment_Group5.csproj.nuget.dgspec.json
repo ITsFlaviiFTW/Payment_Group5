@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kenta\\Source\\Repos\\ITsFlaviiFTW\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {}
+    "C:\\Users\\timme\\source\\repos\\Paym\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kenta\\Source\\Repos\\ITsFlaviiFTW\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {
+    "C:\\Users\\timme\\source\\repos\\Paym\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kenta\\Source\\Repos\\ITsFlaviiFTW\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
+        "projectUniqueName": "C:\\Users\\timme\\source\\repos\\Paym\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
         "projectName": "Payment_Group5",
-        "projectPath": "C:\\Users\\kenta\\Source\\Repos\\ITsFlaviiFTW\\Payment_Group5\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
-        "packagesPath": "C:\\Users\\kenta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kenta\\Source\\Repos\\ITsFlaviiFTW\\Payment_Group5\\Payment_Group5\\Payment_Group5\\obj\\",
+        "projectPath": "C:\\Users\\timme\\source\\repos\\Paym\\Payment_Group5\\Payment_Group5\\Payment_Group5.csproj",
+        "packagesPath": "C:\\Users\\timme\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\timme\\source\\repos\\Paym\\Payment_Group5\\Payment_Group5\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "G:\\Visual Studio Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\kenta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\timme\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -80,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

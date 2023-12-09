@@ -32,8 +32,8 @@ namespace Payment_Group5.Controllers
             paymentInfo.CustomerID = cart.customerID;
 
 
-            double avg;
-            double sum = 0;
+            decimal avg = cart.total / cart.products.Count;
+            decimal gst = 1.13m;
 
             string connectionString = "Server=tcp:group5-payment-server.database.windows.net,1433;Initial Catalog=Group5-Payment-SQLDatabase;Persist Security Info=False;User ID=ktargosz;Password=paymentGr0up;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -43,12 +43,10 @@ namespace Payment_Group5.Controllers
                 // Pass the connection to the DatabaseControl class
                 DatabaseControl.DatabaseConnection(connection);
 
-                DatabaseControl.InsertOrder(connection, DatabaseControl.GetHighestOrderID(connection) + 1, paymentInfo.CustomerID, paymentInfo.Products.Count(), paymentInfo.Total, paymentInfo.Total, "Visa", DateTime.Now, paymentInfo.Total);
+                DatabaseControl.InsertOrder(connection, DatabaseControl.GetHighestOrderID(connection) + 1, paymentInfo.CustomerID, paymentInfo.Products.Count(), paymentInfo.Total, paymentInfo.Total * gst, "Visa", DateTime.Now, avg);
 
             }
 
-
-            // Log the received data
             //_logger.LogInformation("Received cart data for CustomerID {CustomerID}", paymentInfo.CustomerID);
 
             // Store the received data in TempData for now 
